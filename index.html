@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+<title>LPROJEKT</title>
+</head>
+
+<body style="background-color:rgb(255, 206, 214);">
+   <div class="mdl-card mdl-shadow--4dp">
+  <div class="mdl-card__title">
+     <h2 class="mdl-card__title-text">Ich liebe dich Leni<br>Its meant to be forever ❤️</h2>
+  </div>
+
+  <div class="mdl-card__media">
+    <img src="image0.jpeg" width="173" height="180" border="0" alt="Bild Leni und ich"
+     style="padding:10px; cursor: pointer;">
+     
+  </div>
+
+  <div class="mdl-card__supporting-text">
+  Ich fühle mich an keinem ort so zuhause wie bei dir.
+  Du bist mein lieblings Flugzeug haha
+  <div style="margin-top: 15px; font-size: 14px; color: #555; font-weight: bold;">
+    Schon seit <span id="timer" style="color: #e91e63;">0</span> zusammen kannst du das glauben?
+  </div>
+    </div>
+
+    <div style="text-align: left; margin-top: 25px; padding-bottom: 20px; position: relative;">
+      <p style="font-weight: bold; color: #333; margin-bottom: 10px;">liebst du mich?</p>
+      
+      <div style="display: inline-block;">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" 
+                onclick="alert('Ich liebe dich auchhhhh mein Schatz ❤️')">
+          Ja!
+        </button>
+        
+        <button id="runaway-btn" 
+                class="mdl-button mdl-js-button mdl-button--raised" 
+                style="position: absolute; margin-left: 10px; transition: all 0.12s ease;" 
+                onmouseover="flee()">
+          Nein
+        </button>
+  </div>
+  </div>
+  <div class="mdl-card__actions">
+     <a href="L_projekt.png">Das lang ersehnte Projekt</a>
+  </div>
+</div>
+
+<script>
+   
+  function flee() {
+    const btn = document.getElementById('runaway-btn');
+    const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+    const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+    
+    btn.style.left = x + 'px';
+    btn.style.top = y + 'px';
+  }
+ 
+  
+  // (Januar = 0, Februar = 1, März = 2 ... Juni = 5 ... Dezember = 11)
+  const startDate = new Date(2025, 7, 14, 23, 3, 0); // Beispiel: 15. Mai 2025 um 18:00 Uhr
+
+  function updateTimer() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('timer').innerText = 
+      `${days} Tagen, ${hours} Std, ${minutes} Min und ${seconds} Sek`;
+  }
+  
+  setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
+
+</body>
+
+
+</html>
